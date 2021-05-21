@@ -3,9 +3,11 @@ import os
 
 #request 网址，并返回json data
 def getHTML(url):
+    
+    #输入自己浏览器的headers
     headers = {
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36 Edg/90.0.818.62',
-        'cookie': 'mid=YKc58AALAAFoSfrpLcjRB1RpuqGU; ig_did=893A37A8-D006-425A-9D37-5520552FB248; ig_nrcb=1; shbid=1381; shbts=1621572088.066615; rur=VLL; csrftoken=inPklO7gdfr1rMjwatEJcCqkQnIlGI6c; ds_user_id=338966265; sessionid=338966265%3ApR7o6KkeENg3lh%3A28'
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; 。。。。。。。。。',
+        'cookie': 'mid=YKc58AALAAFoSfrpLcjRB1RpuqGU; 。。。。。。。'
     }
 
     html = requests.get(url,headers=headers)
@@ -15,9 +17,6 @@ def getHTML(url):
 
 #获取所有网址list，一个网址就包含12个url图片src
 def getURLlist(url,id):
-    #headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36 Edg/90.0.818.62',
-           #    'cookie': 'mid=YKc58AALAAFoSfrpLcjRB1RpuqGU; ig_did=893A37A8-D006-425A-9D37-5520552FB248; ig_nrcb=1; shbid=1381; shbts=1621572088.066615; rur=VLL; csrftoken=inPklO7gdfr1rMjwatEJcCqkQnIlGI6c; ds_user_id=338966265; sessionid=338966265%3ApR7o6KkeENg3lh%3A28'}
-
     url_list = [url]
     while url != None or has_next_page_data_info['has_next_page'] == True:
         data = getHTML(url)
